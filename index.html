@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>AI BIZ PRODUCE 02 — 岡安ユニット</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Noto+Sans+JP:wght@300;400;700;900&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ── Ambient overlays ── -->
+<div class="scanlines" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<!-- ── Meta bar ── -->
+<div class="meta-bar" aria-hidden="true">
+  <span class="meta-l">博報堂 AI・テクノロジーデザインセンター // AIビジネスプロデュース局 // UNIT-02</span>
+  <span class="meta-r">
+    <span class="sys-dot"></span>SYS:ONLINE&nbsp;&nbsp;//&nbsp;&nbsp;<span id="meta-clock">----.--.-- --:--</span>
+  </span>
+</div>
+
+<!-- ── Navigation ── -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="logo">
+      <span class="logo-bracket">[</span>
+      <span class="logo-text">AI BIZ PRODUCE</span>
+      <span class="logo-unit">02</span>
+      <span class="logo-bracket">]</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#works"><span class="nav-num">01.</span>WORKS</a></li>
+      <li><a href="#team"><span class="nav-num">02.</span>TEAM</a></li>
+      <li><a href="#mission"><span class="nav-num">03.</span>MISSION</a></li>
+      <li><a href="#submit" class="nav-add">+ ADD WORK</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════
+     HERO — full-screen unified
+     ════════════════════════════════════════ -->
+<section class="hero" id="top">
+
+  <!-- Layer 0 — video -->
+  <video id="hero-video" autoplay muted loop playsinline aria-hidden="true">
+    <source src="hero-bg.mp4" type="video/mp4">
+  </video>
+
+  <!-- Layer 1 — subtle uniform dark -->
+  <div class="hero-video-overlay" aria-hidden="true"></div>
+
+  <!-- Layer 2 — particle network (screen blend) -->
+  <canvas id="canvas"></canvas>
+
+  <!-- Layer 3 — idea explosion (screen blend, full-screen) -->
+  <canvas id="idea-canvas"></canvas>
+
+  <!-- Layer 4 — fine grid -->
+  <div class="hero-grid-overlay" aria-hidden="true"></div>
+
+  <!-- Layer 5 — bottom-fade for text readability -->
+  <div class="hero-fade" aria-hidden="true"></div>
+
+  <!-- Layer 6 — text content (bottom-left) -->
+  <div class="hero-content">
+    <div class="hero-kicker">
+      <span class="kicker-tag">HAKUHODO AI × TECHNOLOGY DESIGN CENTER</span>
+      <span class="kicker-sep">//</span>
+      <span class="kicker-tag kicker-jp">AI業務推進二部</span>
+    </div>
+
+    <h1 class="glitch-wrap">
+      <span class="glitch" data-text="AI BIZ PRODUCE">AI BIZ PRODUCE</span>
+    </h1>
+
+    <div class="hero-unit-line">
+      <span class="unit-label">UNIT</span>
+      <span class="unit-num">02</span>
+      <span class="unit-em">—</span>
+      <span class="unit-jp">岡安ユニット</span>
+    </div>
+
+    <p class="hero-manifesto">
+      マーケットを理解し、クライアントビジネスを理解し、<br>
+      現場でAIを使い<em class="em-cyan">1.5列目</em>としてオーバーラップを行う。
+    </p>
+    <p class="hero-en">AI Driven. Client First. Borderless.</p>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-n counter" data-target="5">0</span>
+        <span class="stat-l">BUILDERS</span>
+      </div>
+      <div class="stat-div"></div>
+      <div class="stat">
+        <span class="stat-n counter" data-target="6">0</span>
+        <span class="stat-l">LIVE SYSTEMS</span>
+      </div>
+      <div class="stat-div"></div>
+      <div class="stat">
+        <span class="stat-n">∞</span>
+        <span class="stat-l">CHALLENGES</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Equation caption — floats near animation -->
+  <div class="idea-equation" aria-hidden="true">
+    <span class="ie-a">INSPIRATION</span>
+    <span class="ie-op">×</span>
+    <span class="ie-b">LOGIC</span>
+    <span class="ie-eq">=</span>
+    <span class="ie-result">IDEA</span>
+  </div>
+
+  <div class="hero-coords" aria-hidden="true">
+    <span>35.6894° N</span><br>
+    <span>139.6917° E</span><br>
+    <span>TOKYO // TYO</span>
+  </div>
+
+  <a href="#works" class="hero-scroll">
+    <span>SCROLL</span>
+    <div class="scroll-line"></div>
+  </a>
+
+</section>
+
+<!-- ════════════════════════════════════════
+     WORKS GALLERY
+     ════════════════════════════════════════ -->
+<section class="section" id="works">
+  <div class="container">
+
+    <div class="section-head fade-up">
+      <div class="section-label">// DEPLOYED_SYSTEMS</div>
+      <h2 class="section-title">
+        What We've Built.
+        <span class="title-jp">俺たちが作ったもの。</span>
+      </h2>
+      <p class="section-sub">Each card is a deployed system. Real URLs. Real impact. Click to open.</p>
+    </div>
+
+    <div class="works-grid" id="works-grid">
+      <!-- Rendered by main.js -->
+    </div>
+
+    <div class="works-footer fade-up">
+      <p class="works-count"><span id="live-count">—</span> systems live // <span id="dev-count">—</span> in development</p>
+      <a href="#submit" class="btn-terminal">
+        <span class="btn-cursor">▶</span>
+        ADD_YOUR_WORK.sh
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     TEAM
+     ════════════════════════════════════════ -->
+<section class="section section-alt" id="team">
+  <div class="container">
+
+    <div class="section-head fade-up">
+      <div class="section-label">// UNIT_MEMBERS</div>
+      <h2 class="section-title">
+        The Builders.
+        <span class="title-jp">作る人たち。</span>
+      </h2>
+    </div>
+
+    <div class="team-grid">
+
+      <div class="team-card fade-up" style="--delay:0.05s">
+        <div class="tc-header">
+          <span class="tc-role-tag">部長 / Lead</span>
+          <span class="tc-status live">ACTIVE</span>
+        </div>
+        <div class="tc-initial">O</div>
+        <div class="tc-names">
+          <div class="tc-jp">岡安 由樹</div>
+          <div class="tc-en">Yoshiki Okayasu</div>
+        </div>
+        <div class="tc-bio">AI Biz Produce Unit 2を率いる。クライアントビジネスの変革推進と次世代型マーケティングの実装を牽引。</div>
+        <div class="tc-tags">
+          <span>Strategy</span><span>AI</span><span>Business Dev</span>
+        </div>
+      </div>
+
+      <div class="team-card fade-up" style="--delay:0.1s">
+        <div class="tc-header">
+          <span class="tc-role-tag">Biz Producer</span>
+          <span class="tc-status live">ACTIVE</span>
+        </div>
+        <div class="tc-initial">W</div>
+        <div class="tc-names">
+          <div class="tc-jp">渡辺 小雪</div>
+          <div class="tc-en">Koyuki Watanabe</div>
+        </div>
+        <div class="tc-bio">クライアントビジネスの実装とAI活用のプロデュースを担当。</div>
+        <div class="tc-tags">
+          <span>Biz Produce</span><span>Client Dev</span>
+        </div>
+      </div>
+
+      <div class="team-card fade-up" style="--delay:0.15s">
+        <div class="tc-header">
+          <span class="tc-role-tag">Biz Producer</span>
+          <span class="tc-status live">ACTIVE</span>
+        </div>
+        <div class="tc-initial">Y</div>
+        <div class="tc-names">
+          <div class="tc-jp">吉住 光哉</div>
+          <div class="tc-en">Koya Yoshizumi</div>
+        </div>
+        <div class="tc-bio">Cloudflare Workers上に次々とLive Systemsを展開。Client DD、Pitch Evaluatorなど実用ツールを量産。</div>
+        <div class="tc-tags">
+          <span>Cloudflare Workers</span><span>Full Stack</span><span>AI Apps</span>
+        </div>
+      </div>
+
+      <div class="team-card fade-up" style="--delay:0.2s">
+        <div class="tc-header">
+          <span class="tc-role-tag">Tech Director</span>
+          <span class="tc-status live">ACTIVE</span>
+        </div>
+        <div class="tc-initial">R</div>
+        <div class="tc-names">
+          <div class="tc-jp">Rahmat</div>
+          <div class="tc-en">Rahmat</div>
+        </div>
+        <div class="tc-bio">テクノロジー実装の要。エンジニアリングとAIインテグレーションを横断的にリード。</div>
+        <div class="tc-tags">
+          <span>Tech Lead</span><span>AI Integration</span>
+        </div>
+      </div>
+
+      <div class="team-card fade-up" style="--delay:0.25s">
+        <div class="tc-header">
+          <span class="tc-role-tag">Data Scientist</span>
+          <span class="tc-status live">ACTIVE</span>
+        </div>
+        <div class="tc-initial">A</div>
+        <div class="tc-names">
+          <div class="tc-jp">朝霞 雄人</div>
+          <div class="tc-en">Yuto Asaka</div>
+        </div>
+        <div class="tc-bio">データサイエンスの視点でビジネス課題を解析。MLとAIの融合で、クライアントに定量的な武器を提供。</div>
+        <div class="tc-tags">
+          <span>Data Science</span><span>ML</span><span>Analytics</span>
+        </div>
+      </div>
+
+      <div class="team-card fade-up team-card--collab" style="--delay:0.3s">
+        <div class="tc-header">
+          <span class="tc-role-tag">Collaborator / HAITC</span>
+          <span class="tc-status collab">COLLAB</span>
+        </div>
+        <div class="tc-initial">K</div>
+        <div class="tc-names">
+          <div class="tc-jp">柏崎 貴之</div>
+          <div class="tc-en">Taka Kashiwazaki</div>
+        </div>
+        <div class="tc-bio">タイ拠点のAI Hub構築者。VSKS×AIの実装と、Claude Codeを軸とした自動化システムの設計・展開。</div>
+        <div class="tc-tags">
+          <span>Claude Code</span><span>VSKS</span><span>HAITC</span><span>Python</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     MISSION / TACTICS
+     ════════════════════════════════════════ -->
+<section class="section" id="mission">
+  <div class="container">
+
+    <div class="section-head fade-up">
+      <div class="section-label">// VALUE_PROPOSITION</div>
+      <h2 class="section-title">
+        Why We Exist.
+        <span class="title-jp">なぜ俺たちがいるのか。</span>
+      </h2>
+    </div>
+
+    <div class="manifesto-block fade-up">
+      <div class="mb-num">01</div>
+      <div class="mb-body">
+        <h3>インハウス化するクライアントに対し、<em>"AIで儲ける"</em></h3>
+        <p>メディアとCreativeの内製化だけでなく、マーケプロセスのインストールを率先する。博報堂の専門性をBPO的にAI化し、クライアントに提供。C&Fに頼らない儲け口を開拓する。</p>
+      </div>
+    </div>
+
+    <div class="manifesto-block fade-up" style="--delay:0.1s">
+      <div class="mb-num">02</div>
+      <div class="mb-body">
+        <h3>マーケインフラの理解から、<em>"Data主導権を握る"</em></h3>
+        <p>ITスタックのDDからSaaSの無駄を省き、データ戦略に基づいてAgencyリプレイス障壁となるデータを抑える。1st Party Dataのオーナーシップを如何にOwnするか。</p>
+      </div>
+    </div>
+
+    <div class="manifesto-block fade-up" style="--delay:0.2s">
+      <div class="mb-num">03</div>
+      <div class="mb-body">
+        <h3>境界を越えた<em>"Borderless Leadership"</em></h3>
+        <p>社内部門、グループ会社、外部組織の垣根を軽々と越境してチームを組成し、リードする。電通・コンサルに対抗できる本気の専門部隊として確立する。</p>
+      </div>
+    </div>
+
+    <div class="vision-quote fade-up">
+      <blockquote>
+        "クリエイティビティで、この社会に別解を。<br>
+        <span class="bq-en">AI Biz Produce — 博報堂の新しい武器。</span>"
+      </blockquote>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     SUBMIT / ADD WORK
+     ════════════════════════════════════════ -->
+<section class="section section-alt" id="submit">
+  <div class="container">
+
+    <div class="section-head fade-up">
+      <div class="section-label">// ADD_YOUR_WORK</div>
+      <h2 class="section-title">
+        Ship Something.
+        <span class="title-jp">作ったら、ここに刺せ。</span>
+      </h2>
+      <p class="section-sub">チームで作ったもの、デプロイしたもの — 何でも格納できます。URLを貼るだけ。</p>
+    </div>
+
+    <form class="submit-form fade-up" id="submit-form" novalidate>
+      <div class="terminal-header">
+        <span class="th-dot red"></span>
+        <span class="th-dot amber"></span>
+        <span class="th-dot green"></span>
+        <span class="th-title">ADD_WORK.sh</span>
+      </div>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label class="field-label">BUILDER_NAME<span class="req">*</span></label>
+          <input type="text" name="builder" placeholder="Koya Yoshizumi / 吉住 光哉" required>
+        </div>
+        <div class="form-field">
+          <label class="field-label">STATUS<span class="req">*</span></label>
+          <select name="status" required>
+            <option value="">-- SELECT --</option>
+            <option value="LIVE">🟢 LIVE</option>
+            <option value="DEV">🟡 IN DEV</option>
+            <option value="CONCEPT">⚪ CONCEPT</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label class="field-label">PROJECT_TITLE<span class="req">*</span></label>
+        <input type="text" name="title" placeholder="Client Due Diligence App" required>
+      </div>
+
+      <div class="form-field">
+        <label class="field-label">URL</label>
+        <input type="url" name="url" placeholder="https://your-app.workers.dev">
+      </div>
+
+      <div class="form-field">
+        <label class="field-label">DESCRIPTION<span class="req">*</span></label>
+        <textarea name="desc" rows="3" placeholder="何を作った？誰のため？何ができる？" required></textarea>
+      </div>
+
+      <div class="form-field">
+        <label class="field-label">TAGS <span class="field-hint">(カンマ区切り)</span></label>
+        <input type="text" name="tags" placeholder="Cloudflare Workers, Sales Intelligence, Dashboard">
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn-deploy">
+          <span class="btn-cursor">▶</span>
+          DEPLOY TO GALLERY
+        </button>
+        <span class="form-note">管理者に通知が送られ、ギャラリーに追加されます</span>
+      </div>
+
+      <div class="form-success" id="form-success" hidden>
+        <span class="success-icon">✓</span>
+        送信完了。管理者が確認後、ギャラリーに追加します。
+      </div>
+    </form>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo">[ AI BIZ PRODUCE <span class="logo-unit">02</span> ]</span>
+      <span class="footer-org">博報堂 AI・テクノロジーデザインセンター</span>
+    </div>
+    <div class="footer-meta">
+      <span>35.6894° N, 139.6917° E — TOKYO</span>
+      <span class="footer-sep">//</span>
+      <span>v1.0.0</span>
+      <span class="footer-sep">//</span>
+      <span>&copy; 2026 AI BIZ PRODUCE — Confidential</span>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
