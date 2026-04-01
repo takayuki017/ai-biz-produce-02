@@ -109,6 +109,75 @@ function renderVault() {
 }
 
 /* ────────────────────────────────────────────────────────
+   SIGNAL DATA — Frontier AI Research Orgs
+   ──────────────────────────────────────────────────────── */
+const RESEARCH_ORGS = [
+  {
+    id: 'anthropic',
+    name: 'Anthropic',
+    label: 'ANTHROPIC RESEARCH',
+    tagline: 'AI safety company building reliable, interpretable, and steerable AI systems.',
+    taglineJP: '信頼性・解釈可能性・制御可能性を追求するAI安全研究機関。Claude の開発元。',
+    url: 'https://www.anthropic.com/research',
+    areas: ['Alignment', 'Interpretability', 'Constitutional AI', 'Societal Impact', 'Economic Research', 'Model Safety'],
+    accent: [204, 120, 92],
+    founded: 'Founded 2021',
+    location: 'San Francisco',
+  },
+  {
+    id: 'openai',
+    name: 'OpenAI',
+    label: 'OPENAI RESEARCH',
+    tagline: 'Ensuring that artificial general intelligence benefits all of humanity.',
+    taglineJP: '汎用人工知能が全人類の利益になるよう研究・実装。GPT / o系モデルの開発元。',
+    url: 'https://openai.com/research/',
+    areas: ['GPT / o-series', 'Multimodal AI', 'Reasoning', 'Safety & Alignment', 'Scalable Oversight', 'RLHF'],
+    accent: [240, 238, 232],
+    founded: 'Founded 2015',
+    location: 'San Francisco',
+  },
+  {
+    id: 'google-labs',
+    name: 'Google Labs',
+    label: 'GOOGLE LABS',
+    tagline: 'Incubating experimental AI ideas and releasing them to the world.',
+    taglineJP: '実験的なAIアイデアのインキュベーションと世界への公開。NotebookLM / Gemini。',
+    url: 'https://labs.google/',
+    areas: ['NotebookLM', 'Gemini', 'AI Experiments', 'Search Generative', 'Multimodal', 'Project Mariner'],
+    accent: [66, 133, 244],
+    founded: 'est. Google',
+    location: 'Mountain View',
+  },
+];
+
+function renderSignal() {
+  const el = document.getElementById('signal-orgs');
+  if (!el) return;
+
+  el.innerHTML = RESEARCH_ORGS.map((org, i) => {
+    const rgb   = org.accent.join(',');
+    const delay = (i * 0.12).toFixed(2);
+    return `
+      <div class="signal-card fade-up" style="--delay:${delay}s;--sig-rgb:${rgb}">
+        <div class="sig-header">
+          <div class="sig-label">${org.label}</div>
+          <div class="sig-meta">
+            <span>${org.founded}</span>
+            <span>${org.location}</span>
+          </div>
+        </div>
+        <div class="sig-org-name" style="color:rgb(${rgb})">${org.name}</div>
+        <p class="sig-tagline">${org.tagline}</p>
+        <p class="sig-tagline-jp">${org.taglineJP}</p>
+        <div class="sig-areas">
+          ${org.areas.map(a => `<span class="sig-area">${a}</span>`).join('')}
+        </div>
+        <a href="${org.url}" target="_blank" rel="noopener" class="sig-link" style="color:rgb(${rgb})">→ VISIT RESEARCH</a>
+      </div>`;
+  }).join('');
+}
+
+/* ────────────────────────────────────────────────────────
    WORKS DATA — To add a new work, push to this array.
    ──────────────────────────────────────────────────────── */
 const WORKS = [
@@ -730,7 +799,7 @@ function initNav() {
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 40);
     // Active link
-    const sections = ['works', 'team', 'mission', 'submit'];
+    const sections = ['vault', 'signal', 'works', 'team', 'mission', 'submit'];
     let current = '';
     sections.forEach(id => {
       const el = document.getElementById(id);
@@ -868,6 +937,7 @@ function initForm() {
    ──────────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   renderVault();
+  renderSignal();
   renderWorks();
   initNav();
   initClock();
