@@ -709,7 +709,7 @@ nav.scrolled { border-bottom-color: rgba(0,229,255,0.2); }
 .form-field input::placeholder,
 .form-field textarea::placeholder { color: rgba(240,238,232,0.2); font-size: 0.82rem; }
 .form-field select option { background: #1C1917; }
-.form-field textarea { resize: vertical; min-height: 80px; }
+.form-field textarea { resize: vertical; min-height: 130px; }
 .form-actions {
   padding: 1.5rem;
   display: flex; align-items: center; gap: 1.5rem;

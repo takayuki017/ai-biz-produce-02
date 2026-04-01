@@ -917,14 +917,8 @@ function initForm() {
     //   headers: { 'Content-Type': 'application/json' }
     // });
 
-    // For now: log + show success
+    // TODO: wire to Cloudflare Worker POST endpoint
     console.log('[ADD_WORK]', data);
-
-    // Build mailto as fallback
-    const body = encodeURIComponent(
-      `TITLE: ${data.title}\nBUILDER: ${data.builder}\nURL: ${data.url}\nSTATUS: ${data.status}\nDESC: ${data.desc}\nTAGS: ${data.tags}`
-    );
-    window.location.href = `mailto:?subject=New Work: ${encodeURIComponent(data.title)}&body=${body}`;
 
     form.querySelectorAll('input, select, textarea').forEach(el => el.value = '');
     success.hidden = false;
