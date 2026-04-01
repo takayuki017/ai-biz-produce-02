@@ -6,6 +6,109 @@
 'use strict';
 
 /* ────────────────────────────────────────────────────────
+   VAULT DATA — decks, docs, PDFs, Google Slides, etc.
+   To add: push a new object. url can be Google Drive, Box,
+   Slides, PDF path, or any link.
+   type: 'DECK' | 'DOC' | 'DATA' | 'VIDEO' | 'OTHER'
+   ──────────────────────────────────────────────────────── */
+const VAULT = [
+  {
+    id: 'credential-unit02',
+    title: 'AI Biz Produce Unit 02 Credential',
+    titleJP: 'AIビジネスプロデュース二部 クレデンシャル',
+    desc: '岡安ユニットのクレデンシャルデッキ。Value Proposition / Tactics / Case Studies / Roadmap。',
+    url: null,  // Google Drive or Box URLをここに
+    type: 'DECK',
+    author: '岡安ユニット',
+    date: '2026-03',
+    tags: ['Credential', 'Strategy', 'FY26'],
+  },
+  {
+    id: 'ai-biz-deck',
+    title: 'AI × Biz Produce Deck',
+    titleJP: 'AI×ビズプロデュースデッキ',
+    desc: 'AI時代の広告会社の役割変化、戦略コンサル×AIツール提供モデルの全体像を解説。',
+    url: null,
+    type: 'DECK',
+    author: '柏崎 貴之',
+    date: '2026-03',
+    tags: ['AI Strategy', 'Business Model', 'Hakuhodo'],
+  },
+  {
+    id: 'lost-journey-guide',
+    title: 'ロストジャーニー発見＆改善 完全ガイドブック',
+    titleJP: 'Lost Journey Guide',
+    desc: 'CJ関連のロストジャーニーApp向け参考資料。発見から改善プロセスまでを体系化。',
+    url: null,
+    type: 'DOC',
+    author: 'Unit 02',
+    date: '2026-03',
+    tags: ['CX', 'Journey', 'Reference'],
+  },
+  {
+    id: 'dentsu-ai',
+    title: '電通 AIケイパビリティ 2026年2月版',
+    titleJP: '競合分析 — 電通AI',
+    desc: '電通のAIケイパビリティ最新版。競合の攻め方の把握と差別化戦略立案に活用。',
+    url: null,
+    type: 'DATA',
+    author: 'Unit 02',
+    date: '2026-02',
+    tags: ['Competitive Intel', 'Dentsu', 'AI'],
+  },
+  {
+    id: 'pitch-winning',
+    title: '中小が大手にコンペで連勝する方法 Vol.2',
+    titleJP: 'ピッチ勝利戦略',
+    desc: 'ピッチ戦略のリファレンス資料。勝ち筋の構造化と差別化ポイントの分析。',
+    url: null,
+    type: 'DOC',
+    author: 'Unit 02',
+    date: '2026-03',
+    tags: ['Pitch', 'Strategy', 'Reference'],
+  },
+];
+
+const DOC_TYPE_COLOR = {
+  DECK:  { col: [255, 179, 0],   label: '📊 DECK'  },
+  DOC:   { col: [0, 229, 255],   label: '📄 DOC'   },
+  DATA:  { col: [105, 255, 71],  label: '📈 DATA'  },
+  VIDEO: { col: [255, 23, 68],   label: '🎬 VIDEO' },
+  OTHER: { col: [240, 238, 232], label: '📎 FILE'  },
+};
+
+/* ────────────────────────────────────────────────────────
+   RENDER VAULT
+   ──────────────────────────────────────────────────────── */
+function renderVault() {
+  const grid = document.getElementById('vault-grid');
+  if (!grid) return;
+
+  grid.innerHTML = VAULT.map((d, i) => {
+    const meta  = DOC_TYPE_COLOR[d.type] || DOC_TYPE_COLOR.OTHER;
+    const delay = (i * 0.06).toFixed(2);
+    const rgb   = meta.col.join(',');
+
+    const linkHtml = d.url
+      ? `<a href="${d.url}" target="_blank" rel="noopener" class="vault-open" style="color:rgb(${rgb})">→ OPEN</a>`
+      : `<span class="vault-soon">// URL未設定</span>`;
+
+    return `
+      <div class="vault-card fade-up" style="--delay:${delay}s;--accent:${rgb}">
+        <div class="vc-type" style="color:rgb(${rgb});border-color:rgba(${rgb},0.3)">${meta.label}</div>
+        <div class="vc-title">${d.title}</div>
+        <div class="vc-title-jp">${d.titleJP}</div>
+        <div class="vc-desc">${d.desc}</div>
+        <div class="vc-tags">${d.tags.map(t => `<span>${t}</span>`).join('')}</div>
+        <div class="vc-footer">
+          <span class="vc-meta">${d.author} // ${d.date}</span>
+          ${linkHtml}
+        </div>
+      </div>`;
+  }).join('');
+}
+
+/* ────────────────────────────────────────────────────────
    WORKS DATA — To add a new work, push to this array.
    ──────────────────────────────────────────────────────── */
 const WORKS = [
@@ -764,6 +867,7 @@ function initForm() {
    INIT
    ──────────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
+  renderVault();
   renderWorks();
   initNav();
   initClock();
